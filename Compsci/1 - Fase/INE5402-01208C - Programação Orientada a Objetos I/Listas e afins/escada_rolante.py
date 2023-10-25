@@ -5,7 +5,7 @@ while testes <= 30 and n != 0:
     segundos = 10
     for i in range(1,n):
         diferenca = instantes[i] - instantes[i-1]
-        if diferenca >= 10:
+        if diferenca > 10:
             segundos += 10
         else:
             segundos += diferenca

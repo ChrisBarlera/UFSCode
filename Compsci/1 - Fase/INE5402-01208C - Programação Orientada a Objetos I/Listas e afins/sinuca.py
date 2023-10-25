@@ -11,12 +11,9 @@ def gerar_nova_fila(anterior):
 n = int(input())
 primeira_fila = [int(x) for x in input().split()]
 
-aux_fila = []
-for i in range(n-1):
-    if i == 0:
-        aux_fila = gerar_nova_fila(primeira_fila)
-    else:
-        aux_fila = gerar_nova_fila(aux_fila)
+aux_fila = gerar_nova_fila(primeira_fila)
+for i in range(1,n-1):
+    aux_fila = gerar_nova_fila(aux_fila)
 
 if aux_fila[0] == -1:
     print('branca')
