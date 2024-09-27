@@ -20,7 +20,10 @@ class Livro:
 
     @codigo.setter
     def codigo(self, codigo: int):
-        self.__codigo = codigo
+        if isinstance(codigo, int):
+            self.__codigo = codigo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um int")
 
     @property
     def titulo(self):
@@ -28,7 +31,10 @@ class Livro:
 
     @titulo.setter
     def titulo(self, titulo: str):
-        self.__titulo = titulo
+        if isinstance(titulo, str):
+            self.__titulo = titulo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um str")
 
     @property
     def ano(self):
@@ -36,7 +42,10 @@ class Livro:
 
     @ano.setter
     def ano(self, ano: int):
-        self.__ano = ano
+        if isinstance(ano, int):
+            self.__ano = ano
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um int")
 
     @property
     def editora(self):
@@ -44,7 +53,10 @@ class Livro:
 
     @editora.setter
     def editora(self, editora: Editora):
-        self.__editora = editora
+        if isinstance(editora, Editora):
+            self.__editora = editora
+        else:
+            raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Editora")
     
     @property
     def autor(self):
@@ -52,20 +64,28 @@ class Livro:
 
     @autor.setter
     def autor(self, autor: Autor):
-        self.__autor = autor
-
+        if isinstance(autor, Autor):
+            self.__autor = autor
+        else:
+            raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Autor")
     @property
     def numero_capitulo(self):
         return self.__numero_capitulo
 
     @numero_capitulo.setter
     def numero_capitulo(self, numero_capitulo: int):
-        self.__numero_capitulo = numero_capitulo
+        if isinstance(numero_capitulo, int):
+            self.__numero_capitulo = numero_capitulo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um int")
     
     @property
     def titulo_capitulo(self):
         return self.__titulo_capitulo
 
     @titulo_capitulo.setter
-    def titulo_capitulo(self, titulo_capitulo):
-        self.__titulo_capitulo = titulo_capitulo
+    def titulo_capitulo(self, titulo_capitulo: str):
+        if isinstance(titulo_capitulo, str):
+            self.__titulo_capitulo = titulo_capitulo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um str")

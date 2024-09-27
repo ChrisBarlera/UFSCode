@@ -10,7 +10,10 @@ class Autor:
 
     @codigo.setter
     def codigo(self, codigo: int):
-        self.__codigo = codigo
+        if isinstance(codigo, int):
+            self.__codigo = codigo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um int")
 
     @property
     def nome(self):
@@ -18,4 +21,7 @@ class Autor:
 
     @nome.setter
     def nome(self, nome: str):
-        self.__nome = nome
+        if isinstance(nome, str):
+            self.__nome = nome
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um str")

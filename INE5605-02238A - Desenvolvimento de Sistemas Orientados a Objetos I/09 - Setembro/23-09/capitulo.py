@@ -10,7 +10,10 @@ class Capitulo:
 
     @numero.setter
     def numero(self, numero: int):
-        self.__numero = numero
+        if isinstance(numero, int):
+            self.__numero = numero
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um int")
 
     @property
     def titulo(self):
@@ -18,4 +21,7 @@ class Capitulo:
 
     @titulo.setter
     def titulo(self, titulo: str):
-        self.__titulo = titulo
+        if isinstance(titulo, str):
+            self.__titulo = titulo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um str")
