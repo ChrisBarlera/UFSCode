@@ -1,5 +1,6 @@
 from editora import Editora
 from autor import Autor
+from capitulo import Capitulo
 
 class Livro:
 
@@ -87,5 +88,11 @@ class Livro:
     def titulo_capitulo(self, titulo_capitulo: str):
         if isinstance(titulo_capitulo, str):
             self.__titulo_capitulo = titulo_capitulo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um str")
+
+    def find_capitulo_by_titulo(titulo: str) -> Capitulo:
+        if isinstance(titulo, str):
+            pass
         else:
             raise ValueError("Valor inválido. O valor deve ser um str")
