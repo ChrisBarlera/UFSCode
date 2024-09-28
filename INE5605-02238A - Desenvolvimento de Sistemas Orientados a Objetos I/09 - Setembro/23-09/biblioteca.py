@@ -3,26 +3,22 @@ from livro import Livro
 class Biblioteca:
 
     def __init__(self):
-        pass
+        self.__livros = []
 
-    # @property
-    # def nome(self):
-    #     return self.__nome
+    @property
+    def livros(self):
+        return self.__livros
 
-    # @nome.setter
-    # def nome(self, nome: str):
-    #     self.__nome = nome
-
-    def incluir_livro(livro: Livro):
+    def incluir_livro(self, livro: Livro):
         if isinstance(livro, Livro):
-            pass
+            if livro not in self.__livros:
+                self.__livros.append(livro)
         else:
             raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Livro")
 
 
-    def excluir_livro(livro: Livro):
+    def excluir_livro(self, livro: Livro):
         if isinstance(livro, Livro):
-            pass
+            self.__livros.remove(livro)
         else:
             raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Livro")
-
