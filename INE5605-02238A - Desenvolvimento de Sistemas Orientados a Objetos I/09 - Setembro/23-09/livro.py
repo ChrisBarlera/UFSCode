@@ -7,13 +7,48 @@ class Livro:
     def __init__(self, codigo: int, titulo: str,
                  ano: int, editora: Editora, autor: Autor,
                  numero_capitulo: int, titulo_capitulo: str):
-        self.__codigo = codigo
-        self.__titulo = titulo
-        self.__ano = ano
-        self.__editora = editora
-        self.__autor = autor
-        self.__numero_capitulo = numero_capitulo
-        self.__titulo_capitulo = titulo_capitulo
+        # Testando tipo de codigo
+        if isinstance(codigo, int):
+            self.__codigo = codigo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um int")
+       
+        # Testando tipo de titulo
+        if isinstance(titulo, str):
+            self.__titulo = titulo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um str")
+        
+        # Testando tipo de ano
+        if isinstance(ano, int):
+            self.__ano = ano
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um int")
+        
+        # Testando tipo editora
+        if isinstance(editora, Editora):
+            self.__editora = editora
+        else:
+            raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Editora")
+
+        # Testando tipo autor
+        if isinstance(autor, Autor):
+            self.__autor = autor
+        else:
+            raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Editora")
+
+        # Testando tipo numero_capitulo
+        if isinstance(numero_capitulo, int):
+            self.__numero_capitulo = numero_capitulo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um int")        
+        
+        # Testando tipo de  de ano
+        if isinstance(titulo_capitulo, str):
+            self.__titulo_capitulo = titulo_capitulo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um str")
+        self.__autores = [self.__autor]
 
     @property
     def codigo(self):
