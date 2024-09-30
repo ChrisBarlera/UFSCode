@@ -43,12 +43,14 @@ class Livro:
         else:
             raise ValueError("Valor inválido. O valor deve ser um int")        
         
-        # Testando tipo de  de ano
+        # Testando tipo de titulo_capitulo
         if isinstance(titulo_capitulo, str):
             self.__titulo_capitulo = titulo_capitulo
         else:
             raise ValueError("Valor inválido. O valor deve ser um str")
+       
         self.__autores = [self.__autor]
+        self.__capitulos = [Capitulo(self.__numero_capitulo, self.__titulo_capitulo)]
 
     @property
     def codigo(self):
@@ -104,30 +106,33 @@ class Livro:
             self.__autor = autor
         else:
             raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Autor")
+
     @property
-    def numero_capitulo(self):
-        return self.__numero_capitulo
+    def autores(self):
+        return self.__autores
 
-    @numero_capitulo.setter
-    def numero_capitulo(self, numero_capitulo: int):
-        if isinstance(numero_capitulo, int):
-            self.__numero_capitulo = numero_capitulo
+    def incluir_autor(self, autor: Autor):
+        if isinstance(autor, Autor):
+            if autor not in self.__autores:
+                self.__autores.append(autor)
+            else:
+                raise ValueError("Erro: Autor já está registrado neste livro")
         else:
-            raise ValueError("Valor inválido. O valor deve ser um int")
-    
-    @property
-    def titulo_capitulo(self):
-        return self.__titulo_capitulo
+            raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Autor")
 
-    @titulo_capitulo.setter
-    def titulo_capitulo(self, titulo_capitulo: str):
-        if isinstance(titulo_capitulo, str):
-            self.__titulo_capitulo = titulo_capitulo
+    def excluir_autor(self, autor: Autor):
+        if isinstance(autor, Autor):
+            if autor in self.__autores:
+                self.__autores.remove(autor)
+            else:
+                raise ValueError("Erro: Autor não está registrado neste livro")
         else:
-            raise ValueError("Valor inválido. O valor deve ser um str")
+            raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Autor")
 
-    def find_capitulo_by_titulo(titulo: str) -> Capitulo:
+    def find_capitulo_by_titulo(self, titulo: str) -> Capitulo:
         if isinstance(titulo, str):
-            pass
+            for capitulo in self.__capitulos:
+                if capitulo.titulo == titulo:
+                    return capitulo
         else:
             raise ValueError("Valor inválido. O valor deve ser um str")
