@@ -1,8 +1,17 @@
 class Capitulo:
 
     def __init__(self, numero: int, titulo: str):
-        self.__numero = numero
-        self.__titulo = titulo
+        # Testando tipo de numero
+        if isinstance(numero, int):
+            self.__numero = numero
+        else:
+            print("Valor inválido. O valor deve ser um int")
+
+        # Testando tipo de titulo
+        if isinstance(titulo, str):
+            self.__titulo = titulo
+        else:
+            print("Valor inválido. O valor deve ser um str")
 
     @property
     def numero(self):
@@ -13,7 +22,7 @@ class Capitulo:
         if isinstance(numero, int):
             self.__numero = numero
         else:
-            raise ValueError("Valor inválido. O valor deve ser um int")
+            print("Valor inválido. O valor deve ser um int")
 
     @property
     def titulo(self):
@@ -24,4 +33,4 @@ class Capitulo:
         if isinstance(titulo, str):
             self.__titulo = titulo
         else:
-            raise ValueError("Valor inválido. O valor deve ser um str")
+            print("Valor inválido. O valor deve ser um str")

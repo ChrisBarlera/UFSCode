@@ -5,13 +5,13 @@ class Editora:
         if isinstance(codigo, int):
             self.__codigo = codigo
         else:
-            raise ValueError("Valor inválido. O valor deve ser um int")
-        
+            print("Valor inválido. O valor deve ser um int")
+
          # Testando tipo de nome
         if isinstance(nome, str):
             self.__nome = nome
         else:
-            raise ValueError("Valor inválido. O valor deve ser um str")
+            print("Valor inválido. O valor deve ser um str")
 
     @property
     def codigo(self):
@@ -22,7 +22,7 @@ class Editora:
         if isinstance(codigo, int):
             self.__codigo = codigo
         else:
-            raise ValueError("Valor inválido. O valor deve ser um int")
+            print("Valor inválido. O valor deve ser um int")
 
     @property
     def nome(self):
@@ -33,4 +33,4 @@ class Editora:
         if isinstance(nome, str):
             self.__nome = nome
         else:
-            raise ValueError("Valor inválido. O valor deve ser um str")
+            print("Valor inválido. O valor deve ser um str")
