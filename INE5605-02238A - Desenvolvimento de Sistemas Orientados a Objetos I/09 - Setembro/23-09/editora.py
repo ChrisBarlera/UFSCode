@@ -1,8 +1,17 @@
 class Editora:
 
     def __init__(self, codigo: int, nome: str):
-        self.__codigo = codigo
-        self.__nome = nome
+         # Testando tipo de codigo
+        if isinstance(codigo, int):
+            self.__codigo = codigo
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um int")
+        
+         # Testando tipo de nome
+        if isinstance(nome, str):
+            self.__nome = nome
+        else:
+            raise ValueError("Valor inválido. O valor deve ser um str")
 
     @property
     def codigo(self):
