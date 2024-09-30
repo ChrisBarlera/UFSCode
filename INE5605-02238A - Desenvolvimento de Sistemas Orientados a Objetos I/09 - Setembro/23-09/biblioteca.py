@@ -19,6 +19,9 @@ class Biblioteca:
 
     def excluir_livro(self, livro: Livro):
         if isinstance(livro, Livro):
-            self.__livros.remove(livro)
+            if livro in self.__livros:
+                self.__livros.remove(livro)
+            else:
+                raise ValueError("Erro: Livro não está registrado nesta biblioteca")
         else:
             raise ValueError("Argumento inválido. O argumento deve ser um objeto da classe Livro")
