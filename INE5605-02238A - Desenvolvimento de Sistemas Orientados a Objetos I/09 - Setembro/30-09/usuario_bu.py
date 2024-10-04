@@ -1,4 +1,7 @@
-class UsuarioBU:
+from abc import ABC, abstractmethod
+
+
+class UsuarioBU(ABC):
 
     def __init__(self, cpf: int, dias_de_emprestimo: int):
          # Testando tipo de cpf

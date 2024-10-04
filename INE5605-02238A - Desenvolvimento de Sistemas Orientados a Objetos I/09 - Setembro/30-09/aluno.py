@@ -1,9 +1,10 @@
+from abc import ABC, abstractmethod
 from usuario_bu import UsuarioBU
 
 
-class Aluno(UsuarioBU):
+class Aluno(UsuarioBU, ABC):
     
-    def __init__(self, matricula: int) -> None:
+    def __init__(self, cpf: int, dias_de_emprestimo: int, matricula: int) -> None:
         # Testando tipo de matricula
         if isinstance(matricula, int):
             self.__matricula = matricula
