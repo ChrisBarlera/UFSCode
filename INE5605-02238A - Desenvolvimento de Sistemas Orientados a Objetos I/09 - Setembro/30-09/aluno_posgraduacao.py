@@ -3,13 +3,9 @@ from aluno import Aluno
 
 class AlunoPosGraduacao(Aluno):
 
-    def __init__(self, matricula: int, elaborando_tese: bool) -> None:
-        super().__init__(self, matricula)
-        # Testando tipo de elaborando_tese
-        if isinstance(elaborando_tese, bool):
-            self.__elaborando_tese = elaborando_tese
-        else:
-            print("Valor inválido. O valor deve ser um bool")
+    def __init__(self, cpf: int, dias_de_emprestimo: int, matricula: int):
+        # super().__init__(self, matricula)
+        self.__elaborando_tese = False
     
     @property
     def elaborando_teste(self):

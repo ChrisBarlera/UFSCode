@@ -1,9 +1,10 @@
 from usuario_bu import UsuarioBU
+from abc import ABC, abstractmethod
 
 
-class Funcionario(UsuarioBU):
+class Funcionario(UsuarioBU, ABC):
     
-    def __init__(self, cpf: int, departamento: str) -> None:
+    def __init__(self, departamento: str, cpf: int, dias_de_emprestimo: int) -> None:
         # Testando tipo de cpf
         if isinstance(cpf, int):
             # self.__cpf = cpf
