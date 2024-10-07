@@ -4,10 +4,45 @@ from usuario_bu import UsuarioBU
 
 class Aluno(UsuarioBU, ABC):
     
-    def __init__(self, cpf: int, dias_de_emprestimo: int, matricula: int) -> None:
+    @abstractmethod
+    def __init__(self, cpf: int, dias_de_emprestimo: int, matricula: int):
+        # Testando tipo de cpf
+        if isinstance(cpf, int):
+            self.__cpf = cpf
+        else:
+            print("Valor inválido. O valor deve ser um int")
+
+        # Testando tipo de dias_de_emprestimo
+        if isinstance(dias_de_emprestimo, int):
+            self.__dias_de_emprestimo = dias_de_emprestimo
+        else:
+            print("Valor inválido. O valor deve ser um int")
+        
         # Testando tipo de matricula
         if isinstance(matricula, int):
             self.__matricula = matricula
+        else:
+            print("Valor inválido. O valor deve ser um int")
+
+    @property
+    def cpf(self):
+        return self.__cpf
+
+    @cpf.setter
+    def cpf(self, cpf: int):
+        if isinstance(cpf, int):
+            self.__cpf = cpf
+        else:
+            print("Valor inválido. O valor deve ser um int")
+
+    @property
+    def dias_de_emprestimo(self):
+        return self.__dias_de_emprestimo
+
+    @dias_de_emprestimo.setter
+    def dias_de_emprestimo(self, dias_de_emprestimo: int):
+        if isinstance(dias_de_emprestimo, int):
+            self.__dias_de_emprestimo = dias_de_emprestimo
         else:
             print("Valor inválido. O valor deve ser um int")
 
@@ -22,9 +57,11 @@ class Aluno(UsuarioBU, ABC):
         else:
             print("Valor inválido. O valor deve ser um int")
 
-    def emprestar(self, titulo_livro: str):
-        if isinstance(titulo_livro, str):
-            pass
-            # self.__titulo_livro = titulo_livro
-        else:
-            print("Valor inválido. O valor deve ser um str")
+    @abstractmethod
+    def emprestar(self, titulo_do_livro: str):
+        pass
+
+    def devolver(self, titulo_do_livro: str):
+        print(f'''
+        Aluno de matricula {self.matricula} 
+        devolveu o livro: {titulo_do_livro}''')

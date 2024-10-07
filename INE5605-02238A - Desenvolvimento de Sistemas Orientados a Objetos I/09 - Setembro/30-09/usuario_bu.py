@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 class UsuarioBU(ABC):
 
+    @abstractmethod
     def __init__(self, cpf: int, dias_de_emprestimo: int):
          # Testando tipo de cpf
         if isinstance(cpf, int):
@@ -38,8 +39,10 @@ class UsuarioBU(ABC):
         else:
             print("Valor inválido. O valor deve ser um int")
 
-    def emprestar(self, titulo_livro: str) -> None:
+    @abstractmethod
+    def emprestar(self, titulo_do_livro: str) -> None:
         pass
 
-    def devovler(self, titulo_livro: str) -> None:
+    @abstractmethod
+    def devolver(self, titulo_do_livro: str) -> None:
         pass
