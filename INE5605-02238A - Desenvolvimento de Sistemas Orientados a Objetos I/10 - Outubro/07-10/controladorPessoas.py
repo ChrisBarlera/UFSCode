@@ -5,3 +5,4 @@ from tecnico import Tecnico
 
 class ControladorPessoas(AbstractControladorPessoas):
     def __init__(self):
+        pass
