@@ -10,8 +10,9 @@ Seguirei o tema padrão proposto, cujo problema é:
 
 # Entregas
 O plano a se seguir é:
- - **Até 30/09/2024** finalizar o levantamento de requisitos
+ - **Até 07/10/2024** finalizar o levantamento de requisitos
    - E com isso, definir as classes do modelo do sistema
      - Iniciar o diagrama UML
    - Implementar o código básico das *classes* apenas 
- - **Até 07/10/2024** fazer MVC
+ - **Até 14/10/2024** fazer MVC
+   - Será o MVC de uma entidade, a entidade **Entidade**
