@@ -14,7 +14,7 @@ class TipoChamado(AbstractTipoChamado):
             self.__descricao = descricao
         else:
             print("Valor inválido. O valor deve ser do tipo str")
-        
+
         # Testando tipo de nome
         if isinstance(nome, str):
             self.__nome = nome
@@ -42,7 +42,7 @@ class TipoChamado(AbstractTipoChamado):
             self.__descricao = descricao
         else:
             print("Valor inválido. O valor deve ser um str")
-    
+
     @property
     def nome(self):
         return self.__nome

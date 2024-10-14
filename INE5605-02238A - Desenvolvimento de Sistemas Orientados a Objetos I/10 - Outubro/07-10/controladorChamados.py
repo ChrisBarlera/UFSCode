@@ -22,41 +22,39 @@ class ControladorChamados(AbstractControladorChamados):
     def inclui_chamado(self, data: Date, cliente: Cliente, tecnico: Tecnico,
                        titulo: str, descricao: str,
                        prioridade: int, tipo: TipoChamado) -> Chamado:
-        chamado = Chamado(data,
-                          cliente,
-                          tecnico,
-                          titulo,
-                          descricao,
-                          prioridade,
-                          tipo)
+        novo_chamado = Chamado(data,
+                               cliente,
+                               tecnico,
+                               titulo,
+                               descricao,
+                               prioridade,
+                               tipo)
         if len(self.__chamados) != 0:
-            for item in self.__chamados:
-                if not(data == item.data and
-                cliente == item.cliente and
-                tecnico == item.tecnico and
-                tipo == item.tipo):
-                    self.__chamados.append(chamado)
-                    return chamado
-                else:
+            for chamado in self.__chamados:
+                if (chamado.data == data and chamado.cliente == cliente
+                    and chamado.tecnico == tecnico and chamado.tipo == tipo):
                     print('Erro: chamado já cadastrado')
                     break
+                else:
+                    self.__chamados.append(novo_chamado)
+                    return novo_chamado
         else:
-            self.__chamados.append(chamado)
-        return chamado
+            self.__chamados.append(novo_chamado)
+        return novo_chamado
 
     def inclui_tipochamado(self, codigo: int,
                            nome: str, descricao: str) -> TipoChamado:
-        tipo = TipoChamado(codigo, descricao, nome)
+        novo_tipo = TipoChamado(codigo, descricao, nome)
         if len(self.__tipos_chamados) != 0:
-            for item in self.__tipos_chamados:
-                if item.codigo != codigo:
-                    self.__tipos_chamados.append(tipo)
-                    return tipo
+            for chamado in self.__tipos_chamados:
+                if chamado.codigo != codigo:
+                    self.__tipos_chamados.append(novo_tipo)
+                    return novo_tipo
             else:
                 print('Tipo de chamado já cadastrado')
         else:
-            self.__tipos_chamados.append(tipo)
-        return tipo
+            self.__tipos_chamados.append(novo_tipo)
+        return novo_tipo
 
     @property
     def tipos_chamados(self):

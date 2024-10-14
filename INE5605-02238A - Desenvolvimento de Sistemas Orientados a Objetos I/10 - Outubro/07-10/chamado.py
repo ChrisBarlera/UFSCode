@@ -15,7 +15,7 @@ class Chamado(AbstractChamado):
             descricao: str,
             prioridade: int,
             tipo: TipoChamado):
-        
+
         # Testando tipo de data
         if isinstance(data, Date):
             self.__data = data
@@ -45,13 +45,13 @@ class Chamado(AbstractChamado):
             self.__descricao = descricao
         else:
             print("Valor inválido. O valor deve ser do tipo str")
-        
+
         # Testando tipo de prioridade
         if isinstance(prioridade, int):
             self.__prioridade = prioridade
         else:
             print("Valor inválido. O valor deve ser do tipo int")
-        
+
         # Testando tipo de tipo
         if isinstance(tipo, TipoChamado):
             self.__tipo = tipo
@@ -123,7 +123,7 @@ class Chamado(AbstractChamado):
             self.__prioridade = prioridade
         else:
             print("Valor inválido. O valor deve ser um int")
-    
+
     @property
     def tipo(self):
         return self.__tipo
