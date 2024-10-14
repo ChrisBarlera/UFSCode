@@ -39,7 +39,11 @@ class ControladorJogo(AbstractControladorJogo):
                                    velocidade: int,
                                    resistencia: int,
                                    tipo: Tipo) -> Personagem:
-        novo_personagem = Personagem(energia, habilidade, velocidade, resistencia, tipo)
+        novo_personagem = Personagem(energia,
+                                     habilidade,
+                                     velocidade,
+                                     resistencia,
+                                     tipo)
         self.__personagens.append(novo_personagem)
         return novo_personagem
 
@@ -77,31 +81,50 @@ class ControladorJogo(AbstractControladorJogo):
     Caso ocorra empate entre os jogadores, retorna None
     '''
     def jogada(self, mesa: Mesa) -> Jogador:
-        rand1 = random.randint(0, len(mesa.jogador1.mao)-1)
-        carta1 = mesa.jogador1.baixa_carta_da_mao(rand1)
+        # carta1 = mesa.jogador1.baixa_carta_da_mao()
+        # carta2 = mesa.jogador2.baixa_carta_da_mao()
+        
+        # if carta1 is not None and carta2 is not None:
+        #     if carta1.valor_total_carta() == carta2.valor_total_carta():
+        #         print('Empate')
+        #         mesa.jogador1.inclui_carta_na_mao(carta1)
+        #         mesa.jogador2.inclui_carta_na_mao(carta2)
+        #         return None
+        #     elif carta1.valor_total_carta() > carta2.valor_total_carta():
+        #         print('Jogador 1 vence essa rodada')
+        #         mesa.jogador1.inclui_carta_na_mao(carta1)
+        #         mesa.jogador1.inclui_carta_na_mao(carta2)
+        #         return mesa.jogador1
+        #     else:
+        #         print('Jogador 2 vence essa rodada')
+        #         mesa.jogador2.inclui_carta_na_mao(carta1)
+        #         mesa.jogador2.inclui_carta_na_mao(carta2)
+        #         return mesa.jogador2
 
-        rand2 = random.randint(0, len(mesa.jogador2.mao)-1)
-        carta2 = mesa.jogador2.baixa_carta_da_mao(rand2)
+        # if carta1 is None:
+        #     print('Jogador 2 vence essa rodada')
+        #     mesa.jogador2.inclui_carta_na_mao(carta2)
+        #     return mesa.jogador2
+        
+        # if carta2 is None:
+        #     print('Jogador 1 vence essa rodada')
+        #     mesa.jogador1.inclui_carta_na_mao(carta1)
+        #     return mesa.jogador1
+        carta1 = mesa.carta_jogador1
+        carta2 = mesa.carta_jogador2
         
         if carta1.valor_total_carta() == carta2.valor_total_carta():
             print('Empate')
             mesa.jogador1.inclui_carta_na_mao(carta1)
             mesa.jogador2.inclui_carta_na_mao(carta2)
+            return None
         elif carta1.valor_total_carta() > carta2.valor_total_carta():
             print('Jogador 1 vence essa rodada')
             mesa.jogador1.inclui_carta_na_mao(carta1)
             mesa.jogador1.inclui_carta_na_mao(carta2)
+            return mesa.jogador1
         else:
             print('Jogador 2 vence essa rodada')
             mesa.jogador2.inclui_carta_na_mao(carta1)
             mesa.jogador2.inclui_carta_na_mao(carta2)
-        
-        if len(mesa.jogador2.mao) == 0:
-            print('Jogador 1 venceu')
-            return mesa.jogador1
-
-        if len(mesa.jogador1.mao) == 0:
-            print('Jogador 2 venceu')
             return mesa.jogador2
-        
-        return None

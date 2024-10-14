@@ -27,8 +27,8 @@ class Jogador(AbstractJogador):
     A carta sai da mao (ou seja, a carta sai da lista das cartas que o jogador possui)
     @return Retorna a Carta que foi retirada da mao do jogador (lista das cartas que ele possui)
     '''
-    def baixa_carta_da_mao(self, indice: int) -> Carta:
-        return self.__mao.pop(indice)
+    def baixa_carta_da_mao(self) -> Carta:
+        return self.__mao.pop()
 
     '''
     @return Retorna a mao atual do jogador (lista das cartas que ele possui)
