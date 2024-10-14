@@ -4,7 +4,8 @@ import random
 
 class ControladorJogo(AbstractControladorJogo):
     def __init__(self):
-        pass#implementar
+        self.__baralho = []
+        self.__personagens = []
 
     '''
     Retorna o baralho
@@ -12,15 +13,15 @@ class ControladorJogo(AbstractControladorJogo):
     '''
     @property
     def baralho(self) -> list:
-        pass#implementar
+        return self.__baralho
 
     '''
     Retorna a lista de personagems
     @return a lista de personagems
     '''
     @property
-    def personagems(self) -> list:
-        pass#implementar
+    def personagens(self) -> list:
+        return self.__personagens
 
     '''
     Permite incluir um novo Personagem na lista de personagens do jogo
@@ -38,7 +39,9 @@ class ControladorJogo(AbstractControladorJogo):
                                    velocidade: int,
                                    resistencia: int,
                                    tipo: Tipo) -> Personagem:
-        pass#implementar
+        novo_personagem = Personagem(energia, habilidade, velocidade, resistencia, tipo)
+        self.__personagens.append(novo_personagem)
+        return novo_personagem
 
     '''
     Permite incluir uma nova Carta no baralho do jogo
@@ -46,7 +49,9 @@ class ControladorJogo(AbstractControladorJogo):
     @return Retorna a Carta que foi incluida no baralho
     '''
     def inclui_carta_no_baralho(self, personagem: Personagem) -> Carta:
-        pass#implementar
+        nova_carta = Carta(personagem)
+        self.__baralho.append(Carta)
+        return nova_carta
 
     '''
     Realiza uma jogada, ou seja:
@@ -72,4 +77,31 @@ class ControladorJogo(AbstractControladorJogo):
     Caso ocorra empate entre os jogadores, retorna None
     '''
     def jogada(self, mesa: Mesa) -> Jogador:
-        pass#implementar
+        rand1 = random.randint(0, len(mesa.jogador1.mao)-1)
+        carta1 = mesa.jogador1.baixa_carta_da_mao(rand1)
+
+        rand2 = random.randint(0, len(mesa.jogador2.mao)-1)
+        carta2 = mesa.jogador2.baixa_carta_da_mao(rand2)
+        
+        if carta1.valor_total_carta() == carta2.valor_total_carta():
+            print('Empate')
+            mesa.jogador1.inclui_carta_na_mao(carta1)
+            mesa.jogador2.inclui_carta_na_mao(carta2)
+        elif carta1.valor_total_carta() > carta2.valor_total_carta():
+            print('Jogador 1 vence essa rodada')
+            mesa.jogador1.inclui_carta_na_mao(carta1)
+            mesa.jogador1.inclui_carta_na_mao(carta2)
+        else:
+            print('Jogador 2 vence essa rodada')
+            mesa.jogador2.inclui_carta_na_mao(carta1)
+            mesa.jogador2.inclui_carta_na_mao(carta2)
+        
+        if len(mesa.jogador2.mao) == 0:
+            print('Jogador 1 venceu')
+            return mesa.jogador1
+
+        if len(mesa.jogador1.mao) == 0:
+            print('Jogador 2 venceu')
+            return mesa.jogador2
+        
+        return None

@@ -11,24 +11,52 @@ class Personagem(AbstractPersonagem):
     #Construtor fornecido, nao deve ser alterado
     def __init__(self, energia: int, habilidade: int,
                  velocidade: int, resistencia: int, tipo: Tipo):
-        pass#implementar
+        # Testando tipo de energia
+        if isinstance(energia, int):
+            self.__energia = energia
+        else:
+            print('Tipo inválido')
+
+        # Testando tipo de habilidade
+        if isinstance(habilidade, int):
+            self.__habilidade = habilidade
+        else:
+            print('Tipo inválido')
+
+        # Testando tipo de velocidade
+        if isinstance(velocidade, int):
+            self.__velocidade = velocidade
+        else:
+            print('Tipo inválido')
+
+        # Testando tipo de resistencia
+        if isinstance(resistencia, int):
+            self.__resistencia = resistencia
+        else:
+            print('Tipo inválido')
+
+        # Testando tipo de tipo
+        if isinstance(tipo, Tipo):
+            self.__tipo = tipo
+        else:
+            print('Tipo inválido')
 
     @property
     def tipo(self) -> Tipo:
-        pass#implementar
+        return self.__tipo
 
     @property
     def energia(self) -> int:
-        pass#implementar
+        return self.__energia
 
     @property
     def habilidade(self) -> int:
-        pass#implementar
+        return self.__habilidade
 
     @property
     def velocidade(self) -> int:
-        pass#implementar
+        return self.__velocidade
 
     @property
     def resistencia(self) -> int:
-        pass#implementar
+        return self.__resistencia
